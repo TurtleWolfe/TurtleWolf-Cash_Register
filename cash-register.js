@@ -1,11 +1,15 @@
 function checkCashRegister(price, cash, cid) {
-
-if (cid < //change due// || //denominations do not compute// ) {
-  var change = {status: "INSUFFICIENT_FUNDS", change: []};
-  }
-
-else if (cid == //change due// ) {
+price
+cash
+cid
+var totalINdrawer = [cid array];
+var changeDue = cash - price ;	
+if (cid == changeDue ) {
   var change = {status: "CLOSED", change: [cid]};
+  }
+    
+else if (cid < //change due// || //denominations do not compute// ) {
+  var change = {status: "INSUFFICIENT_FUNDS", change: []};
   }
 
 else {
