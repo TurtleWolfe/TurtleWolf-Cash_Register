@@ -8,12 +8,12 @@ if (cid == changeDue ) {
   var change = {status: "CLOSED", change: [cid]};
   }
     
-else if (cid < //change due// || //denominations do not compute// ) {
+else if (cid < changeDue || //denominations do not compute// ) {
   var change = {status: "INSUFFICIENT_FUNDS", change: []};
   }
 
 else {
-  var change = {status: "OPEN", change: [cid]},;
+  var change = {status: "OPEN", change: [changeDue]},;
   }
   // Here is your change, ma'am.
   return change;
