@@ -1,6 +1,6 @@
 function checkCashRegister(price, cash, cid) {
 
-var totalINdrawer = [cid]; //sum the arrary
+var totalINdrawer = [cid]; //use reduce method to sum the 2nd property of an array, do not use a loop
   
 var changeDue = cash - price ;	
 if (cid == changeDue ) {
