@@ -1,16 +1,24 @@
 function checkCashRegister(price, cash, cid) {
-
-var totalINdrawer = [cid]; //use reduce method to sum the 2nd property of an array, do not use a loop
   
+var total = cid.map(currency => currency[1]*100)
+    .reduce((total, amount) => total + amount);
+console.log(total);
+
+var totalINdrawer = total/100; //use reduce method to sum the 2nd property of an array, do not use a loop
+console.log(totalINdrawer);  
+
 var changeDue = cash - price ;	
-if (cid == changeDue ) {
+
+  if (totalINdrawer == changeDue ) {
   var change = {status: "CLOSED", change: [cid]};
   console.log(change);
   }
     
-else if (cid < changeDue || cid < changeDue ) {
-  //denominations do not compute as  in 2 quarters in drawer, not suffeicent to convert to a dime, nickle & pennies because they ain't in the drawer dog//
+else if (totalINdrawer < changeDue || cid < changeDue ) {
+  //denominations not suffeicent, do not compute, as in 2 quarters in drawer, to convert to a dime, nickle & pennies
+  // because they ain't in the drawer dog//
   // move this lower in logical structure
+
 change = {status: "INSUFFICIENT_FUNDS", change: []};
 console.log(change);  
   }
@@ -23,7 +31,6 @@ else {
   // Here is your change, ma'am.
   return change;
 }
-
 
 checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
 checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]); //should return {status: "OPEN", change: [["QUARTER", 0.5]]}.
