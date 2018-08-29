@@ -14,20 +14,25 @@ var changeDue = cash - price ;
   console.log(change);
   }
     
-else if (totalINdrawer < changeDue || cid < changeDue ) {
-  //denominations not suffeicent, do not compute, as in 2 quarters in drawer, to convert to a dime, nickle & pennies
-  // because they ain't in the drawer dog//
-  // move this lower in logical structure
-
-change = {status: "INSUFFICIENT_FUNDS", change: []};
-console.log(change);  
+  else if (totalINdrawer < changeDue) {
+  change = {status: "INSUFFICIENT_FUNDS", change: []};
+  console.log(change);  
   }
-
-else {
- change = {status: "OPEN", change: [changeDue]};//calculate denominations of change.. 
-  
- console.log(change);     
-}
+     else {           // (totalINdrawer > changeDue)     ..so calculate change
+       
+       
+  //calculate change object here     
+       
+       
+          if (totalINdrawer > changeDue) {
+          //denominations not suffeicent, do not compute, as in 2 quarters in drawer, to convert to a dime, nickle & pennies)
+          change = {status: "INSUFFICIENT_FUNDS", change: []};
+          console.log(change);
+          } else {  //just give his money bruh
+          change = {status: "OPEN", change: [changeDue]};//calculate denominations of change.. 
+          console.log(change);
+          }// end of else, give him money bruh     
+         }//end of else, give change as per calculation
   // Here is your change, ma'am.
   return change;
 }
