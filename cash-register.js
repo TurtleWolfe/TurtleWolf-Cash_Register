@@ -3,22 +3,27 @@ function checkCashRegister(price, cash, cid) {
 let totalINdrawer = total/100; //use reduce method to sum the 2nd property of an array, do not use a loop
 console.log(totalINdrawer);  
 let changeDue = cash - price ;	
-let change = {};//set default return
+let change = '';//set default return
 
   if (totalINdrawer == changeDue ) {
-  change = {status: "CLOSED", change: [cid]};
+  change = {status: "CLOSED", change: cid};
   console.log(change);}//end of if (totalINdrawer == changeDue )
     else if (totalINdrawer < changeDue) {
     change = {status: "INSUFFICIENT_FUNDS", change: []};
     console.log(change);}//end of// else if (totalINdrawer < changeDue)
-    else {           // (totalINdrawer > changeDue)     ..so calculate change
-     //calculate change object here
-          if (totalINdrawer < changeDue) {
+    else {// (totalINdrawer > changeDue)     ..so calculate change
+     
+      //calculate change object here
+      
+        if (totalINdrawer < changeDue) {
           //denominations not suffeicent, do not compute, as in 2 quarters in drawer, to convert to a dime, nickle & pennies)
           change = {status: "INSUFFICIENT_FUNDS", change: []};
           console.log(change);
-          } else {  //just give his money bruh
-          change = {status: "OPEN", change: [changeDue]};//calculate denominations of change.. 
+          } 
+      
+      
+        else {  //just give his money bruh
+          change = {status: "OPEN", change: changeDue};//calculate denominations of change.. 
           console.log(change);
           }// end of else, give him money bruh     
          }//end of else, give change as per calculation
@@ -104,14 +109,14 @@ switch (true) {
   console.log(romanString);
   return romanString;
 }//end of function convertToRoman(num)
-
-checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
-checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]); //should return {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}.
 {
-//  checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]); //should return {status: "OPEN", change: [["QUARTER", 0.5]]}.
+ // checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
+  checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]); //{status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}.
+    checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]); //should return {status: "OPEN", change: [["QUARTER", 0.5]]}.
 //  checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]); //should return {status: "INSUFFICIENT_FUNDS", change: []}.
-//  checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]); // should return {status: "INSUFFICIENT_FUNDS", change: []}.
-//  checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]); // should return {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}.
+    checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]); // should return {status: "INSUFFICIENT_FUNDS", change: []}.
+    checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]); // should return {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]
+}//test block checkCashRegister
 //  convertToRoman(3);
 //  convertToRoman(4);
 //  convertToRoman(5);
@@ -139,7 +144,7 @@ checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], 
 //  convertToRoman(40); //  should return "XL"
 //  convertToRoman(44); // should return "XLIV".
 //  convertToRoman(45); //  should return "XLV"
-}//test block checkCashRegister
+
 //convertToRoman(49); //  should return "XLIX"
 {
 //  convertToRoman(68); //  should return "LXVIII"
