@@ -1,59 +1,63 @@
 function everybodiesGoodEnoughForSomeChange (changeDue) {
 let romanString = ''; // let while loop equal funtion call
 while (changeDue > 0){
-switch (true) {
-  // hundreds
-  case (changeDue > 99):
-    romanString = romanString.concat('ONE HUNDRED');
-    changeDue = changeDue -100;
-    break;
-  // twenties 
-  case (changeDue > 19):
-    romanString = romanString.concat('TWENTY');
-    changeDue = changeDue -20;
-    break;    
-  // tens 
-  case (changeDue > 9):
-    romanString = romanString.concat('TEN');
-    changeDue = changeDue -10;
-    break;    
-  // fives
-  case (changeDue > 4):
-    romanString = romanString.concat('FIVE');
-    changeDue = changeDue -5;
-    break;    
-  // ones
-  case (changeDue > 99):
-    romanString = romanString.concat('ONE');
-    changeDue = changeDue -100;
-    break;
-  // quarters
-  case (changeDue > 24):
-    romanString = romanString.concat('QUARTER');
-    changeDue = changeDue -25;
-    break;    
-  // dimes
-  case (changeDue > 9):
-    romanString = romanString.concat('DIME');    
-    changeDue = changeDue -10;
-    break;
-  // nickles
-  case (changeDue > 4):
-    romanString = romanString.concat('NICKLE');    
-    changeDue = changeDue -5;
-    break; 
-  // pennies
-  case (changeDue > 0):
-    romanString = romanString.concat('PENNY');    
-    changeDue = changeDue -1;
-    break;
-  default:    
-    console.log('51 changeDue = ',changeDue);
-  }//end of switch
+    CountingChangeDue();//end of switch
   }//end of while..
 //refactor while loop as anounoumous function?      
 console.log('55 romanString = ',romanString);
 return romanString;
+
+  function CountingChangeDue() {
+    switch (true) {
+      // hundreds
+      case (changeDue > 99):
+        romanString = romanString.concat('ONE HUNDRED');
+        changeDue = changeDue - 100;
+        break;
+      // twenties 
+      case (changeDue > 19):
+        romanString = romanString.concat('TWENTY');
+        changeDue = changeDue - 20;
+        break;
+      // tens 
+      case (changeDue > 9):
+        romanString = romanString.concat('TEN');
+        changeDue = changeDue - 10;
+        break;
+      // fives
+      case (changeDue > 4):
+        romanString = romanString.concat('FIVE');
+        changeDue = changeDue - 5;
+        break;
+      // ones
+      case (changeDue > 99):
+        romanString = romanString.concat('ONE');
+        changeDue = changeDue - 100;
+        break;
+      // quarters
+      case (changeDue > 24):
+        romanString = romanString.concat('QUARTER');
+        changeDue = changeDue - 25;
+        break;
+      // dimes
+      case (changeDue > 9):
+        romanString = romanString.concat('DIME');
+        changeDue = changeDue - 10;
+        break;
+      // nickles
+      case (changeDue > 4):
+        romanString = romanString.concat('NICKLE');
+        changeDue = changeDue - 5;
+        break;
+      // pennies
+      case (changeDue > 0):
+        romanString = romanString.concat('PENNY');
+        changeDue = changeDue - 1;
+        break;
+      default:
+        console.log('51 changeDue = ', changeDue);
+    }
+  }
 //refactor while loop as anounoumous function?
 }//end of  function everybodiesGoodEnoughForSomeChange 
 function checkCashRegister(price, cash, cid) {
